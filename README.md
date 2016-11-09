@@ -9,9 +9,11 @@ http://qrng.anu.edu.au is a open source free source of truly random number and h
 
 Clone the project and run the command ```python setup.py install``` from the root of the project directory. Run ```randomc``` as entry point after that from terminal.
 
+You would need root permissions to run this 
+
 **Requirements**
 
-This project has been tested under ```python -V : Python 2.7.12```
+This project has been tested under ```python -V : Python 2.7.12``` and Linux/Mac
 
 Other requirements for randomclone should be automatically installed as part the install.
 
@@ -37,3 +39,5 @@ hex: ```randomc -h --count 2```
 **Simplified version of how randomclone works ?**
 
 As you hit the entry point randomc, the tool uses json parsing libraries to get random data from http://qrng.anu.edu.au in form of json and depending upon the type of data type it converts hex to binary or leaves it be. It then pushes this data into buffer which is a python list and acts as a buffer(Last In First Out) till the buffer is completely repenished. As soon as it replenishes the data it then goes according to the count argument given pipes out that amount of randomness to the standard output which can be piped to wherever the user wants.
+
+- Note : The size of the buffer is kept at 5 for the demo but can be increased to whatever. keeping it at 5 allows for quick replenishing of the buffer.
